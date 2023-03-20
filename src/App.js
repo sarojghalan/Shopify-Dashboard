@@ -161,7 +161,7 @@ export default function App() {
             color={sidenavColor}
             // brand={brand}
             brandName="SHOPIFY ADMIN"
-            routes={routes}
+            routes={routes} 
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
