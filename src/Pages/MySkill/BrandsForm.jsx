@@ -40,7 +40,7 @@ export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
       <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Skill Title
+            Brand English
             <Required />
           </SoftTypography>
         </SoftBox>
@@ -56,23 +56,24 @@ export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
       <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Description
+            Brand Nepali
             <Required />
           </SoftTypography>
         </SoftBox>
         <SoftInput
-          placeholder="Type here..."
-          multiline
-          rows={5}
-          name="description"
-          value={mySkill.description}
+          type="text"
+          placeholder="Enter here..."
+          required
+          name="skill"
+          value={mySkill.skill}
           onChange={handleSkill}
         />
       </SoftBox>
+
       <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Skill Image
+            Brand Image
             <Required />
           </SoftTypography>
         </SoftBox>
@@ -85,7 +86,7 @@ export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
       </SoftBox>
       <SoftBox mt={4} mb={1}>
         <LoadingButton
-          title={editMode ? "Update Navbar Title" : "Create Navbar Title"}
+          title={editMode ? "Update Brand" : "Create Brand"}
           loading={loading}
           action={createSkill}
         />

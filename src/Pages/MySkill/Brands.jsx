@@ -29,9 +29,9 @@ export const Brands = () => {
         <SoftBox mb={3}>
           <Card>
             <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
-              <SoftTypography variant="h6">My Skill</SoftTypography>
+              <SoftTypography variant="h6">Brands</SoftTypography>
               <SoftButton color="success" onClick={() => setOpenForm(true)}>
-                New
+                Add New Brand
                 <Icon>add</Icon>
               </SoftButton>
             </SoftBox>
@@ -59,7 +59,7 @@ export const Brands = () => {
           textTransform="uppercase"
           textAlign="center"
         >
-          Create New Skill
+          Add Brand
         </SoftTypography>
         <BrandsForm setOpen={setOpenForm} reload={reload} setReload={setReload} />
       </MyModal>

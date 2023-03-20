@@ -118,15 +118,17 @@ export const BrandsTable = ({ reload, setReload }) => {
 
   const columns = [
     { name: "S.No", align: "center" },
-    { name: "Skill Title", align: "left" },
-    { name: "Skill Description", align: "left" },
+    { name: "Brands Eng.", align: "left" },
+    { name: "Brands Nep.", align: "left" },
+    { name: "Image", align: "left" },
     { name: "Action", align: "left" },
   ];
 
   const temp = [0, 1, 2, 3].map((item) => ({
     "S.No": <Skeleton animation="wave" width={50} />,
-    "Skill Title": <Skeleton animation="wave" width={50} />,
-    "Skill Description": <Skeleton animation="wave" width={50} />,
+    "Brands Eng.": <Skeleton animation="wave" width={50} />,
+    "Brands Nep.": <Skeleton animation="wave" width={50} />,
+    "Image": <Skeleton animation="wave" width={50} />,
     Action: <Skeleton animation="wave" width={50} />,
   }));
 
