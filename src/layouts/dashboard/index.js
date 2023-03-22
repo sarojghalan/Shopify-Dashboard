@@ -45,7 +45,7 @@ function Dashboard() {
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} xl={4}>
               <MiniStatisticsCard
-                title={{ text: "Total Streams" }}
+                title={{ text: "Total Sales" }}
                 count={totalStream}
                 // percentage={{ color: "success", text: "+55%" }}
                 icon={{ color: "info", component: "live_tv" }}
@@ -53,7 +53,7 @@ function Dashboard() {
             </Grid>
             <Grid item xs={12} sm={6} xl={4}>
               <MiniStatisticsCard
-                title={{ text: "Total Completed" }}
+                title={{ text: "Monthly Sales" }}
                 count={completedStream}
                 // percentage={{ color: "success", text: "+3%" }}
                 icon={{ color: "info", component: "check" }}
@@ -61,7 +61,7 @@ function Dashboard() {
             </Grid>
             <Grid item xs={12} sm={6} xl={4}>
               <MiniStatisticsCard
-                title={{ text: "Remaining Meetings" }}
+                title={{ text: "Pending Orders" }}
                 count={upcoming}
                 // percentage={{ color: "error", text: "-2%" }}
                 icon={{ color: "info", component: "upcoming" }}

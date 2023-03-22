@@ -23,34 +23,30 @@ import SoftTypography from "components/SoftTypography";
 // Soft UI Dashboard React examples
 import TimelineItem from "examples/Timeline/TimelineItem";
 import { useEffect, useState } from "react";
-
+// import DefaultDoughnutChart from "examples/Charts/DoughnutCharts/DefaultDoughnutChart";
+import PieChart from "examples/Charts/PieChart";
 
 function UpcomingMeeting() {
   const [upcomingClass, setUpcomingClass] = useState([]);
 
   return (
     <Card className="h-100">
-      <SoftBox pt={3} px={3}>
+      {/* <SoftBox pt={3} px={3}>
         <SoftTypography variant="h6" fontWeight="medium">
-          Upcoming Meeting
+          Recent All Order
         </SoftTypography>
-      </SoftBox>
-      <SoftBox p={2}>
-        {upcomingClass.map((item, id) => (
-          <TimelineItem
-            key={id}
-            color="success"
-            icon="notifications"
-            />
-        ))}
-        {/* 
-        <TimelineItem
-          color="success"
-          icon="notifications"
-          title="Meeting 2"
-          dateTime="26 DEC, 10:00 AM to 26 DEC, 11.30 AM"
-        /> */}
-      </SoftBox>
+      </SoftBox> */}
+      <PieChart
+        title="Today Sales"
+        chart={{
+          labels: ["Pant", "T-Shirt", "Shoe", "Women","Jacket"],
+          datasets: {
+            label: "Projects",
+            backgroundColors: ["info", "primary", "dark", "secondary", "warning"],
+            data: [15, 20, 12, 60,50],
+          },
+        }}
+      />
     </Card>
   );
 }
