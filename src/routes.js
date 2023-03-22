@@ -14,6 +14,8 @@ import PollIcon from "@mui/icons-material/Poll";
 import { Brands } from "Pages/MySkill/Brands";
 import { Category } from "Pages/Category/Category/Category";
 import { SubCategory } from "Pages/Category/SubCategory/SubCategory";
+import { AddProducts } from "Pages/Products/AddProducts/AddProducts";
+import { ManageProducts } from "Pages/Products/ManageProducts/ManageProducts";
 
 const routes = [ 
   {
@@ -40,7 +42,7 @@ const routes = [
     type: "collapse",
     name: "Category",
     key: "category",
-    route: "/all-category",
+    route: "/category",
     icon: <Shop size="12px" />,
     component: <Category />,
     noCollapse: true,
@@ -49,10 +51,30 @@ const routes = [
   {
     type: "collapse",
     name: "Sub Category",
-    key: "sub-category",
-    route: "/all-sub-category",
+    key: "sub_category",
+    route: "/sub_category",
     icon: <Shop size="12px" />,
     component: <SubCategory />,
+    noCollapse: true,
+    authentication: true,
+  },
+  {
+    type: "collapse",
+    name: "Add Products",
+    key: "add_products",
+    route: "/add_products",
+    icon: <Shop size="12px" />,
+    component: <AddProducts />,
+    noCollapse: true,
+    authentication: true,
+  },
+  {
+    type: "collapse",
+    name: "Manage Products",
+    key: "manage_products",
+    route: "/manage_products",
+    icon: <Shop size="12px" />,
+    component: <ManageProducts />,
     noCollapse: true,
     authentication: true,
   },
