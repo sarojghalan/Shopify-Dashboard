@@ -16,6 +16,7 @@ import { Category } from "Pages/Category/Category/Category";
 import { SubCategory } from "Pages/Category/SubCategory/SubCategory";
 import { AddProducts } from "Pages/Products/AddProducts/AddProducts";
 import { ManageProducts } from "Pages/Products/ManageProducts/ManageProducts";
+import { Slider } from "Pages/Slider/Slider";
 
 const routes = [ 
   {
@@ -75,6 +76,16 @@ const routes = [
     route: "/manage_products",
     icon: <Shop size="12px" />,
     component: <ManageProducts />,
+    noCollapse: true,
+    authentication: true,
+  },
+  {
+    type: "collapse",
+    name: "Slider",
+    key: "slider",
+    route: "/slider",
+    icon: <Shop size="12px" />,
+    component: <Slider />,
     noCollapse: true,
     authentication: true,
   },
