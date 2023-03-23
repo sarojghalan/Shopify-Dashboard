@@ -11,8 +11,7 @@ import { useSnackbar } from "notistack";
 
 export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
   const initialState = {
-    skill: "",
-    description: "",
+    brand_title: "",
     image: "",
   };
   const [mySkill, setMySkill] = useState(initialState);
@@ -22,8 +21,8 @@ export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
   useEffect(() => {
     if (editMode && data) {
       setMySkill({
-        skill: data.skill,
-        description: data.description,
+        brand_title: data.brand_title,
+        description: data.image,
       });
     }
   }, [editMode, data]);
@@ -48,24 +47,8 @@ export const BrandsForm = ({ setOpen, reload, setReload, editMode, data }) => {
           type="text"
           placeholder="Enter here..."
           required
-          name="skill"
-          value={mySkill.skill}
-          onChange={handleSkill}
-        />
-      </SoftBox>
-      <SoftBox mb={2}>
-        <SoftBox mb={1} ml={0.5}>
-          <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Brand Nepali
-            <Required />
-          </SoftTypography>
-        </SoftBox>
-        <SoftInput
-          type="text"
-          placeholder="Enter here..."
-          required
-          name="skill"
-          value={mySkill.skill}
+          name="brand_title"
+          value={mySkill.brand_title}
           onChange={handleSkill}
         />
       </SoftBox>

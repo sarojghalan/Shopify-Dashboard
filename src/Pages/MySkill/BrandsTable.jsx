@@ -118,16 +118,14 @@ export const BrandsTable = ({ reload, setReload }) => {
 
   const columns = [
     { name: "S.No", align: "center" },
-    { name: "Brands Eng.", align: "left" },
-    { name: "Brands Nep.", align: "left" },
+    { name: "Brand Title", align: "left" },
     { name: "Image", align: "left" },
     { name: "Action", align: "left" },
   ];
 
   const temp = [0, 1, 2, 3].map((item) => ({
     "S.No": <Skeleton animation="wave" width={50} />,
-    "Brands Eng.": <Skeleton animation="wave" width={50} />,
-    "Brands Nep.": <Skeleton animation="wave" width={50} />,
+    "Brand Title": <Skeleton animation="wave" width={50} />,
     "Image": <Skeleton animation="wave" width={50} />,
     Action: <Skeleton animation="wave" width={50} />,
   }));
@@ -145,8 +143,7 @@ export const BrandsTable = ({ reload, setReload }) => {
               {i + 1}
             </SoftTypography>
           ),
-          "Brands Eng.": <Author name={parse(classData?.skill)} />,
-          "Brands Nep.": <Author name={parse(classData?.skill)} />,
+          "Brand Title": <Author name={parse(classData?.skill)} />,
           "Image": <Author name={parse(classData?.description.substring(0,120))} />,
           Action: (
             <>

@@ -28,12 +28,9 @@ export const CategoryForm = ({ setOpen, reload, setReload, editMode, data }) => 
     }
   }, [editMode, data]);
 
-  const handleSkill = (e) => {
+  const handleSkill = (e) => {};
 
-  };
-
-  const createSkill = () => {
-  };
+  const createSkill = () => {};
 
   return (
     <SoftBox component="form" role="form">

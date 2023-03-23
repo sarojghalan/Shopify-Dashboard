@@ -118,14 +118,15 @@ export const SubCategoryTable = ({ reload, setReload }) => {
 
   const columns = [
     { name: "S.No", align: "center" },
+    { name: "Category", align: "left" },
     { name: "Sub Category Title", align: "left" },
-    { name: "Sub Category Description", align: "left" },
     { name: "Image", align: "left" },
     { name: "Action", align: "left" },
   ];
 
   const temp = [0, 1, 2, 3].map((item) => ({
     "S.No": <Skeleton animation="wave" width={50} />,
+    "Category": <Skeleton animation="wave" width={50} />,
     "Sub Category Title": <Skeleton animation="wave" width={50} />,
     "Sub Category Description": <Skeleton animation="wave" width={50} />,
     "Image": <Skeleton animation="wave" width={50} />,
@@ -145,8 +146,8 @@ export const SubCategoryTable = ({ reload, setReload }) => {
               {i + 1}
             </SoftTypography>
           ),
+          "Category": <Author name={parse(classData?.skill)} />,
           "Sub Category Title": <Author name={parse(classData?.skill)} />,
-          "Sub Category Description": <Author name={parse(classData?.description.substring(0,120))} />,
           "Image": <Author name={parse(classData?.description.substring(0,120))} />,
           Action: (
             <>

@@ -119,7 +119,6 @@ export const CategoryTable = ({ reload, setReload }) => {
   const columns = [
     { name: "S.No", align: "center" },
     { name: "Category Title", align: "left" },
-    { name: "Category Description", align: "left" },
     { name: "Image", align: "left" },
     { name: "Action", align: "left" },
   ];
@@ -127,7 +126,6 @@ export const CategoryTable = ({ reload, setReload }) => {
   const temp = [0, 1, 2, 3].map((item) => ({
     "S.No": <Skeleton animation="wave" width={50} />,
     "Category Title": <Skeleton animation="wave" width={50} />,
-    "Category Description": <Skeleton animation="wave" width={50} />,
     "Image": <Skeleton animation="wave" width={50} />,
     Action: <Skeleton animation="wave" width={50} />,
   }));
@@ -146,7 +144,6 @@ export const CategoryTable = ({ reload, setReload }) => {
             </SoftTypography>
           ),
           "Category Title": <Author name={parse(classData?.skill)} />,
-          "Category Description": <Author name={parse(classData?.description.substring(0,120))} />,
           "Image": <Author name={parse(classData?.description.substring(0,120))} />,
           Action: (
             <>

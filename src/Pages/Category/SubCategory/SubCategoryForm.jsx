@@ -37,26 +37,21 @@ export const SubCategoryForm = ({ setOpen, reload, setReload, editMode, data }) 
 
   return (
     <SoftBox component="form" role="form">
-      <SoftBox mb={2}>
+         <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Sub Category Title
+            Category
             <Required />
           </SoftTypography>
         </SoftBox>
-        <SoftInput
-          type="text"
-          placeholder="Enter here..."
-          required
-          name="skill"
-          value={mySkill.skill}
-          onChange={handleSkill}
-        />
+        <select className="form-control" name="stream_id">
+          <option value="">Select Category</option>
+        </select>
       </SoftBox>
       <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
-            Sub Category Description
+            Sub Category Title
             <Required />
           </SoftTypography>
         </SoftBox>
