@@ -32,6 +32,7 @@ import SendIcon from "@mui/icons-material/Send";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
+import { Box, ThemeProvider, createTheme } from "@mui/system";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -115,12 +116,24 @@ function SidenavCollapse({
                       sx={(theme) => collapseItem(theme, { active, transparentSidenav })}
                     >
                       <ListItemIcon
-                        sx={(theme) =>
-                          collapseIconBox(theme, { active, transparentSidenav, color })
-                        }
+                        sx={{
+                          background: get?.key === collapseName ? "#17c1e8" : "#e9ecef",
+                          minWidth: (theme)=>theme.functions.pxToRem(32),
+                          minHeight: (theme)=>theme.functions.pxToRem(32),
+                          borderRadius: 1.8,
+                          display: "grid",
+                          placeItems: "center",
+                          boxShadow: (theme)=>theme.boxShadows.md,
+                          transition: (theme)=>theme.transitions.create("margin", {
+                            easing: theme.transitions.easing.easeInOut,
+                            duration: theme.transitions.duration.standard,
+                          }),
+                        }}
                       >
                         {typeof icon === "string" ? (
-                          <Icon sx={(theme) => collapseIcon(theme, { active })}>{icon}</Icon>
+                          <Icon sx={{
+                            color: get?.key === collapseName ? "#17c1e8" : "#e9ecef",
+                          }}>{icon}</Icon>
                         ) : (
                           icon
                         )}
@@ -130,9 +143,15 @@ function SidenavCollapse({
                         <ListItemText
                           key={get?.key}
                           primary={get?.name}
-                          sx={(theme) =>
-                            collapseText(theme, { miniSidenav, transparentSidenav, active })
-                          }
+                          // sx={(theme) =>
+                          //   collapseText(theme, { miniSidenav, transparentSidenav, active })
+                          // }
+                          sx={{
+                            color: get?.key === collapseName ? "#000" : "danger",
+                            fontWeight: 'bold',
+                            mx: 0.5,
+                            ml:1.8
+                          }}
                         />
                       </NavLink>
                     </SoftBox>
