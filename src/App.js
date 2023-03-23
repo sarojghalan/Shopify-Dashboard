@@ -22,7 +22,7 @@ import { Routes, Route, Navigate, useLocation, useNavigate, Outlet } from "react
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
-
+ 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 

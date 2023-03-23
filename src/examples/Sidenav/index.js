@@ -47,6 +47,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const location = useLocation();
   const { pathname } = location;
   const collapseName = pathname.split("/").slice(1)[0];
+  // console.log("collapse name is : ", collapseName);
+
 
   const closeSidenav = () => setMiniSidenav(dispatch, true);
 
@@ -68,65 +70,10 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     return () => window.removeEventListener("resize", handleMiniSidenav);
   }, [dispatch, location]);
 
-  // Render all the routes from the routes.js (All the visible items on the Sidenav)
-  const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, route, href }) => {
-    let returnValue;
-
-    if (type === "collapse") {
-      returnValue = href ? (
-        <Link
-          href={href}
-          key={key}
-          target="_blank"
-          rel="noreferrer"
-          sx={{ textDecoration: "none" }}
-        >
-          <SidenavCollapse
-            color={color}
-            name={name}
-            icon={icon}
-            active={key === collapseName}
-            noCollapse={noCollapse}
-          />
-        </Link>
-      ) : (
-        <NavLink to={route} key={key}>
-          <SidenavCollapse
-            color={color}
-            key={key}
-            name={name}
-            icon={icon}
-            active={key === collapseName}
-            noCollapse={noCollapse}
-          />
-        </NavLink>
-      );
-    } else if (type === "title") {
-      returnValue = (
-        <SoftTypography
-          key={key}
-          display="block"
-          variant="caption"
-          fontWeight="bold"
-          textTransform="uppercase"
-          opacity={0.6}
-          pl={3}
-          mt={2}
-          mb={1}
-          ml={1}
-        >
-          {title}
-        </SoftTypography>
-      );
-    } else if (type === "divider") {
-      returnValue = <Divider key={key} />;
-    }
-
-    return returnValue;
-  });
+ 
 
   return (
-    <SidenavRoot {...rest} variant="permanent" ownerState={{ transparentSidenav, miniSidenav }}>
+    <SidenavRoot className="side-nav" {...rest} variant="permanent" ownerState={{ transparentSidenav, miniSidenav }}>
       <SoftBox pt={3} pb={1} px={4} textAlign="center">
         <SoftBox
           display={{ xs: "block", xl: "none" }}
@@ -154,7 +101,44 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         </SoftBox>
       </SoftBox>
       <Divider />
-      <List>{renderRoutes}</List>
+      {/* <List>{renderRoutes}</List> */}
+
+      <list>
+        {routes.map((get, keys) => {
+          return (
+            <>
+              {get.children == true ? (
+                <SidenavCollapse
+                  color={color}
+                  key={get.key}
+                  name={get.name}
+                  icon={get.icon}
+                  route={get.route}
+                  childrenData={get.collapse}
+                  childrenState={get.children}
+                  active={get.collapse.map(item => item).key === collapseName }
+                  noCollapse={get.noCollapse}
+                />
+              ) : (
+                <SidenavCollapse
+                  color={color}
+                  childrenState={get.children}
+                  key={get.key}
+                  name={get.name}
+                  icon={get.icon}
+                  route={get.route}
+                  active={get.key === collapseName}
+                  noCollapse={get.noCollapse}
+                />
+              )}
+            </>
+          );
+        })}
+        {/* <NavLink to={routes[1].route} key={routes[1].key}> */}
+
+        {/* </NavLink> */}
+      </list>
+      <list></list>
     </SidenavRoot>
   );
 }

@@ -91,7 +91,7 @@ function collapseIconBox(theme, ownerState) {
         } else {
           background = palette[color].main;
         }
-
+ 
         return background;
       },
     },
@@ -112,7 +112,6 @@ function collapseText(theme, ownerState) {
 
   const { size, fontWeightMedium, fontWeightRegular } = typography;
   const { pxToRem } = functions;
-
   return {
     marginLeft: pxToRem(12.8),
 
