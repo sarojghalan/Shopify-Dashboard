@@ -15,7 +15,6 @@ import { Brands } from "Pages/MySkill/Brands";
 import { Category } from "Pages/Category/Category/Category";
 import { SubCategory } from "Pages/Category/SubCategory/SubCategory";
 import { AddProducts } from "Pages/Products/AddProducts/AddProducts";
-import { ManageProducts } from "Pages/Products/ManageProducts/ManageProducts";
 import { Slider } from "Pages/Slider/Slider";
 import { Coupons } from "Pages/Coupons/Coupons";
 
@@ -69,24 +68,12 @@ const routes = [
     type: "collapse",
     name: "Products",
     key: "products",
+    route:"/products",
     icon: <Shop size="12px" />,
+    component: <AddProducts />,
     noCollapse: true,
-    children: true,
+    children: false,
     authentication: true,
-    collapse: [
-      {
-        name: "Add Products",
-        key: "add_products",
-        route: "/add_products",
-        component: <AddProducts />,
-      },
-      {
-        name: "Manage Products",
-        key: "manage_products",
-        route: "/manage_products",
-        component: <ManageProducts />,
-      },
-    ],
   },
   {
     type: "collapse",

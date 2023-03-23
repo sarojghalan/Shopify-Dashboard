@@ -28,16 +28,13 @@ export const SubCategoryForm = ({ setOpen, reload, setReload, editMode, data }) 
     }
   }, [editMode, data]);
 
-  const handleSkill = (e) => {
+  const handleSkill = (e) => {};
 
-  };
-
-  const createSkill = () => {
-  };
+  const createSkill = () => {};
 
   return (
     <SoftBox component="form" role="form">
-         <SoftBox mb={2}>
+      <SoftBox mb={2}>
         <SoftBox mb={1} ml={0.5}>
           <SoftTypography component="label" variant="caption" fontWeight="bold">
             Category

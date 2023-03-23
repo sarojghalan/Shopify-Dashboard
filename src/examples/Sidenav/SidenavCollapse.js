@@ -69,7 +69,6 @@ function SidenavCollapse({
   const { pathname } = location;
   const collapseName = pathname.split("/").slice(1)[0];
 
-  console.log("collapse active : ", active);
 
   useEffect(() => {}, [collapseName]);
 
