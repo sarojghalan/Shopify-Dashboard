@@ -118,17 +118,23 @@ export const AddProductsTable = ({ reload, setReload }) => {
 
   const columns = [
     { name: "S.No", align: "center" },
-    { name: "Category Title", align: "left" },
-    { name: "Category Description", align: "left" },
+    { name: "Product Name", align: "left" },
     { name: "Image", align: "left" },
+    { name: "Price", align: "left" },
+    { name: "Quantity", align: "left" },
+    { name: "Discount", align: "left" },
+    { name: "Status", align: "left" },
     { name: "Action", align: "left" },
   ];
 
   const temp = [0, 1, 2, 3].map((item) => ({
     "S.No": <Skeleton animation="wave" width={50} />,
-    "Category Title": <Skeleton animation="wave" width={50} />,
-    "Category Description": <Skeleton animation="wave" width={50} />,
+    "Product Name": <Skeleton animation="wave" width={50} />,
     "Image": <Skeleton animation="wave" width={50} />,
+    "Price": <Skeleton animation="wave" width={50} />,
+    "Quantity": <Skeleton animation="wave" width={50} />,
+    "Discount": <Skeleton animation="wave" width={50} />,
+    "Status": <Skeleton animation="wave" width={50} />,
     Action: <Skeleton animation="wave" width={50} />,
   }));
 
@@ -145,9 +151,12 @@ export const AddProductsTable = ({ reload, setReload }) => {
               {i + 1}
             </SoftTypography>
           ),
-          "Category Title": <Author name={parse(classData?.skill)} />,
-          "Category Description": <Author name={parse(classData?.description.substring(0,120))} />,
+          "Product Name": <Author name={parse(classData?.skill)} />,
           "Image": <Author name={parse(classData?.description.substring(0,120))} />,
+          "Price": <Author name={parse(classData?.skill)} />,
+          "Quantity": <Author name={parse(classData?.skill)} />,
+          "Discount": <Author name={parse(classData?.skill)} />,
+          "Status": <Author name={parse(classData?.skill)} />,
           Action: (
             <>
               <>

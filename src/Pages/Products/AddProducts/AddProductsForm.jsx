@@ -10,8 +10,8 @@ import LoadingButton from "components/LoadingButton";
 import { useSnackbar } from "notistack";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const AddProductsForm = ({ setOpen, reload, setReload, editMode, data }) => {
   const initialState = {
@@ -24,6 +24,12 @@ export const AddProductsForm = ({ setOpen, reload, setReload, editMode, data }) 
   const [loading, setLoading] = useState(false);
   const [quillValue, setQuillValue] = useState("");
   const [checkedIndex, setCheckedIndex] = useState(-1);
+  const [checkboxes, setCheckboxes] = useState([
+    { label: 'Hot Deals', value: 'hotDeals', checked: false },
+    { label: 'Special Offers', value: 'specialOffers', checked: false },
+    { label: 'Featured', value: 'featured', checked: false },
+    { label: 'Special Deals', value: 'specialDeals', checked: false },
+  ]);
 
   useEffect(() => {
     if (editMode && data) {
@@ -34,8 +40,13 @@ export const AddProductsForm = ({ setOpen, reload, setReload, editMode, data }) 
     }
   }, [editMode, data]);
 
-  const handleCheckboxClick = (index) => {
-    setCheckedIndex(index);
+  const handleCheck = (event) => {
+    const value = event.target.value;
+    const newCheckboxes = checkboxes.map((checkbox) => ({
+      ...checkbox,
+      checked: checkbox.value === value,
+    }));
+    setCheckboxes(newCheckboxes);
   };
 
   const handleSkill = (e) => {};
@@ -288,25 +299,26 @@ export const AddProductsForm = ({ setOpen, reload, setReload, editMode, data }) 
                 <Required />
               </SoftTypography>
             </SoftBox>
-            <ReactQuill
-              theme="snow"
-              value={quillValue}
-              onChange={setQuillValue}
-            />
+            <ReactQuill theme="snow" value={quillValue} onChange={setQuillValue} />
           </SoftBox>
         </div>
-        <div className="col-md-3">
-        <FormControlLabel
-        label="Parent"
-        control={
-          <Checkbox
-          checked={checkedIndex === 0}
-        onClick={() => handleCheckboxClick(0)}
-        color="secondary"
-          />
-        }
-      />
+        {checkboxes.map((checkbox) => (
+        <div className="col-md-3" key={checkbox.value}>
+          <div className="select-checkbox">
+            <input
+              type="checkbox"
+              name="feature"
+              value={checkbox.value}
+              checked={checkbox.checked}
+              onChange={handleCheck}
+            />
+            {/* <label htmlFor={checkbox.value}>{checkbox.label}</label> */}
+              <SoftTypography ml={0.5} htmlFor={checkbox.value} component="label" variant="caption" fontWeight="bold">
+              {checkbox.label}
+              </SoftTypography>
+          </div>
         </div>
+      ))}
       </div>
       <SoftBox mt={4} mb={1}>
         <LoadingButton
